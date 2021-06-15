@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div data-js="container"></div>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*const h1 = React.createElement(
+      'h1', 
+      { id: 'title', 'data-js': 'titulo-js' },
+      React.createElement('span', null, 'Bootcamp '),
+      React.createElement('b', null, 'React')
+    )*/
+
+    const h1 = (
+      <h1 id='title' data-js='titulo-js'>
+        <span>Bootcamp </span>
+        <b>React</b>
+      </h1>
+    )
+
+    console.log(h1)
+
+    const container = document.querySelector('[data-js="container"]')
+    ReactDOM.render(h1, container)
+  </script>
+</body>
+</html>
