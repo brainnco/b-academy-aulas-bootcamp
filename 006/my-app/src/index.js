@@ -1,15 +1,12 @@
 import ReactDOM from 'react-dom'
 
-function Title () {
+function Title ({ text }) {
   return (
-    <>
-      <h1>Hello world</h1>
-      <span>Hello world</span>
-    </>
+    <h1>{text}</h1>
   )
 }
 
 ReactDOM.render(
-  <Title />,
+  <Title text='hello' />,
   document.querySelector('#root')
 )
