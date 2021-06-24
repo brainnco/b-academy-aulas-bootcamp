@@ -1,10 +1,24 @@
+import { useState } from 'react'
+
 function App () {
-  function handleClick () {
-    alert('clicou!')
+  const [counter, setCounter] = useState(0)
+
+  console.log('state:', counter)
+
+  function decrement () {
+    setCounter(counter - 1)
+  }
+
+  function increment () {
+    setCounter(counter + 1)
   }
 
   return (
-    <button onClick={handleClick}>Clique aqui!</button>
+    <>
+      <h1>Contador: {counter}</h1>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+    </>
   )
 }
 
