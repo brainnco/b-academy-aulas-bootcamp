@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function App () {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(null)
 
   console.log('state:', counter)
 
@@ -15,7 +15,11 @@ function App () {
 
   return (
     <>
-      <h1>Contador: {counter}</h1>
+      <h1>
+        {!counter && 'Contador vazio'} 
+        {!!counter && 'Contador: ' + counter} 
+      </h1>
+
       <button onClick={decrement}>-</button>
       <button onClick={increment}>+</button>
     </>
