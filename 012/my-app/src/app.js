@@ -1,28 +1,19 @@
 import { useState } from 'react'
 
 function App () {
-  const [counter, setCounter] = useState(null)
+  const [inputValue, setInputValue] = useState('')
+  console.log('inputValue (estado):', inputValue)
 
-  console.log('state:', counter)
-
-  function decrement () {
-    setCounter(counter - 1)
-  }
-
-  function increment () {
-    setCounter(counter + 1)
+  function handleChange (e) {
+    console.log('input value:', e.target.value)
+    setInputValue(e.target.value.replace(/\D+/g, ''))
   }
 
   return (
-    <>
-      <h1>
-        {!counter && 'Contador vazio'} 
-        {!!counter && 'Contador: ' + counter} 
-      </h1>
-
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-    </>
+    <form>
+      <input value={inputValue} onChange={handleChange} />
+      <button type="submit">Enviar</button>
+    </form>
   )
 }
 
