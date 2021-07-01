@@ -3,14 +3,31 @@ import { useState } from 'react'
 function App () {
   const [counter, setCounter] = useState(0)
 
-  function handleCounter () {
+  return (
+    <>
+      <Title>{counter}</Title>
+      <Buttons setCounter={setCounter} />
+    </>
+  )
+}
+
+function Title ({ children }) {
+  return <h1>{children}</h1>
+}
+
+function Buttons ({ setCounter }) {
+  function increment () {
     setCounter((prevState) => prevState + 1)
+  }
+
+  function decrement () {
+    setCounter((prevState) => prevState - 1)
   }
 
   return (
     <>
-      <h1>{counter}</h1>
-      <button onClick={handleCounter}>Atualizar contador</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
     </>
   )
 }
