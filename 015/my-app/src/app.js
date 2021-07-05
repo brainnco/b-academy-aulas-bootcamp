@@ -1,33 +1,16 @@
-import { useState } from 'react'
+const url = 'https://ws.apicep.com/cep.json?code=[CEP]'
 
 function App () {
-  const [counter, setCounter] = useState(0)
-
-  return (
-    <>
-      <Title>{counter}</Title>
-      <Buttons setCounter={setCounter} />
-    </>
-  )
-}
-
-function Title ({ children }) {
-  return <h1>{children}</h1>
-}
-
-function Buttons ({ setCounter }) {
-  function increment () {
-    setCounter((prevState) => prevState + 1)
-  }
-
-  function decrement () {
-    setCounter((prevState) => prevState - 1)
+  async function handleClick () {
+    console.log('buscando cep...')
+    const response = await fetch(url.replace('[CEP]', '06233-03'))
+    const json = await response.json()
+    console.log('cep:', json)
   }
 
   return (
     <>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
+      <button onClick={handleClick}>Buscar CEP</button>
     </>
   )
 }
