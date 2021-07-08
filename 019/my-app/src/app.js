@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import Counter from './counter'
+import Cep from './cep'
 
 function getCepUrl (cep) {
   return 'https://ws.apicep.com/cep.json?code=[CEP]'
@@ -32,32 +34,6 @@ function App () {
     <>
       <Counter counter={counter} setCounter={setCounter} />
       <Cep cep={cep} setCep={setCep} />
-    </>
-  )
-}
-
-function Counter ({ counter, setCounter }) {
-  return (
-    <>
-      <h1>{counter}</h1>
-      <button onClick={() => setCounter(c => c - 1)}>-</button>
-      <button onClick={() => setCounter(c => c + 1)}>+</button>
-    </>
-  )
-}
-
-function Cep ({ cep, setCep }) {
-  function handleSubmit (e) {
-    e.preventDefault()
-    setCep(e.target.elements.campoCep.value)
-  }
-
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type='text' name='campoCep' />
-        <button type='submit'>Busca CEP</button>
-      </form>
     </>
   )
 }
