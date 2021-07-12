@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
+import { createGlobalStyle } from 'styled-components'
 import Counter from './counter'
 import Cep from './cep'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: gray;
+  }
+`
 
 function getCepUrl (cep) {
   return 'https://ws.apicep.com/cep.json?code=[CEP]'
@@ -32,8 +39,9 @@ function App () {
 
   return (
     <>
+      <GlobalStyle />
       <Counter counter={counter} setCounter={setCounter} />
-      <Cep cep={cep} setCep={setCep} />
+      <Cep cep={cep} setCep={setCep} color='blue' />
     </>
   )
 }
