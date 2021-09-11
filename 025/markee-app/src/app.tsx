@@ -1,18 +1,15 @@
-import styled, { css } from 'styled-components/macro'
+import * as S from './app-styles'
 
 function App () {
   return (
-    <Title arroz='a'>App</Title>
+    <>
+      <S.Title>
+        App {' '}
+        <S.Span>texto do span</S.Span> {' '}
+        <S.SpanStyled>texto itálico</S.SpanStyled> {' '}
+      </S.Title>
+    </>
   )
 }
-
-type TitleProps = {
-  arroz: string
-}
-
-const Title = styled.h1<TitleProps>`${({ theme }) => css`
-  background: ${theme.colors.black};
-  color: ${theme.colors.primary};
-`}`
 
 export { App }
