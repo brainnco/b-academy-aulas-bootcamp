@@ -1,0 +1,6 @@
+{
+  "extends": "./.eslintrc-default.json",
+  "plugins": [
+    "only-warn"
+  ]
+}
