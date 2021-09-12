@@ -1,7 +1,17 @@
-function App () {
+import styled from 'styled-components/macro'
+import { Sidebar } from 'sidebar'
+import { Content } from 'content'
+
+export function App () {
   return (
-    <h1>App</h1>
+    <Main>
+      <Sidebar />
+      <Content />
+    </Main>
   )
 }
 
-export { App }
+const Main = styled.main`
+  display: flex;
+  height: 100vh;
+`
