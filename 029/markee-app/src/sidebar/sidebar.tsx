@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useState, RefObject } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { File } from 'resources/files/types'
 import markeeLogo from './markee-logo.png'
 import * as icon from 'ui/icons'
 import * as S from './sidebar-styles'
 
-export function Sidebar () {
+type SidebarProps = {
+  inputRef: RefObject<HTMLInputElement>
+}
+
+export function Sidebar ({ inputRef }: SidebarProps) {
   const [files, setFiles] = useState<File[]>([])
 
   const handleCreateNewFile = () => {
+    inputRef.current?.focus()
+
     setFiles(files => files
       .map(file => ({
         ...file,
