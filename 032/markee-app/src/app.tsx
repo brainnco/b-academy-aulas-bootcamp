@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import localforage from 'localforage'
 import styled from 'styled-components/macro'
 import { Sidebar } from 'sidebar'
 import { Content } from 'content'
@@ -15,16 +13,6 @@ export function App () {
     files,
     handleCreateNewFile,
   } = useFiles()
-
-  useEffect(() => {
-    async function storage () {
-      // await localforage.setItem('files', [{ id: 1, lala: true }])
-      const value = await localforage.getItem('files')
-      console.log('valor do storage:', value)
-    }
-
-    storage()
-  }, [])
 
   return (
     <Main>
