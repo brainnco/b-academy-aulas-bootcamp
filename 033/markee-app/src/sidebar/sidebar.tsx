@@ -27,6 +27,28 @@ export function Sidebar ({
         </S.H1>
       </header>
 
+      <S.FileItemLink
+        href='/sobre'
+        active={false}
+        onClick={(e) => {
+          e.preventDefault()
+          window.history.replaceState(null, '', '/sobre')
+        }}
+      >
+        Sobre
+      </S.FileItemLink>
+
+      <S.FileItemLink
+        href='/contato'
+        active={false}
+        onClick={(e) => {
+          e.preventDefault()
+          window.history.pushState(null, '', '/contato')
+        }}
+      >
+        Contato
+      </S.FileItemLink>
+
       <S.H2>
         <span>Arquivos</span>
       </S.H2>
